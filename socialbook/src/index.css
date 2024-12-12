@@ -1,0 +1,18 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+    font-size: 0.93rem;
+    /* font-family: "roboto" sans-serif; */
+}
+
+body{
+    background-color: #efefef;
+    /* font-family: "roboto" sans-serif; */
+}

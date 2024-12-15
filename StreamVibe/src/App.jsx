@@ -32,8 +32,8 @@ function App() {
   const theme = createTheme({
     typography: {
       fontFamily: [
-        'Manrope', // Manrope font
-        'Arial', // fallback font
+        'Manrope', 
+        'Arial', 
         'sans-serif',
       ].join(','),
     },

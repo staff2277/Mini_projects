@@ -1,12 +1,12 @@
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center ">
+    <div className="flex justify-between items-center 5s:pt-5">
       <div className="flex items-center gap-2">
         <img className="sm:w-[90px] max-sm:w-[50px]" src="/images/logo.svg" alt="logo" /> 
         <img className="sm:w-[100px] max-sm:w-[70px]" src="/images/StreamVibe.svg" alt="logo" />
       </div>
-      <ul className="flex mr-[120px] max-lg:hidden gap-3 border-2 border-[#BFBFBF] px-[50px] py-[25px] rounded-xl">
+      <ul className="flex mr-[120px] max-lg:hidden gap-3 border-[4px] border-[#3a3a3a] px-[50px] py-[25px] rounded-xl">
         <li>Home</li>
         <li>Movie & Shows</li>
         <li>Support</li>

@@ -1,38 +1,16 @@
-export default[
-    { id: 1, imageUrl: "/images/img/image-1.png" },
-    { id: 2, imageUrl: "/images/img/image-2.png" },
-    { id: 3, imageUrl: "/images/img/image-3.png" },
-    { id: 4, imageUrl: "/images/img/image-4.png" },
-    { id: 5, imageUrl: "/images/img/image-5.png" },
-    { id: 6, imageUrl: "/images/img/image-6.png" },
-    { id: 7, imageUrl: "/images/img/image-7.png" },
-    { id: 8, imageUrl: "/images/img/image-8.png" },
-    { id: 9, imageUrl: "/images/img/image-9.png" },
-    { id: 10, imageUrl: "/images/img/image-10.png" },
-    { id: 11, imageUrl: "/images/img/image-11.png" },
-    { id: 12, imageUrl: "/images/img/image-12.png" },
-    { id: 13, imageUrl: "/images/img/image-13.png" },
-    { id: 14, imageUrl: "/images/img/image-14.png" },
-    { id: 15, imageUrl: "/images/img/image-15.png" },
-    { id: 16, imageUrl: "/images/img/image-16.png" },
-    { id: 17, imageUrl: "/images/img/image-17.png" },
-    { id: 18, imageUrl: "/images/img/image-18.png" },
-    { id: 19, imageUrl: "/images/img/image-19.png" },
-    { id: 20, imageUrl: "/images/img/image-20.png" },
-    { id: 21, imageUrl: "/images/img/image-21.png" },
-    { id: 22, imageUrl: "/images/img/image-22.png" },
-    { id: 23, imageUrl: "/images/img/image-23.png" },
-    { id: 24, imageUrl: "/images/img/image-24.png" },
-    { id: 25, imageUrl: "/images/img/image-25.png" },
-    { id: 26, imageUrl: "/images/img/image-26.png" },
-    { id: 27, imageUrl: "/images/img/image-27.png" },
-    { id: 28, imageUrl: "/images/img/image-28.png" },
-    { id: 29, imageUrl: "/images/img/image-29.png" },
-    { id: 30, imageUrl: "/images/img/image-30.png" },
-    { id: 31, imageUrl: "/images/img/image-31.png" },
-    { id: 32, imageUrl: "/images/img/image-32.png" },
-    { id: 33, imageUrl: "/images/img/image-33.png" },
-    { id: 34, imageUrl: "/images/img/image-34.png" },
-    { id: 35, imageUrl: "/images/img/image-35.png" },
-    { id: 36, imageUrl: "/images/img/image-36.png" }
-];
+const url = 'https://imdb236.p.rapidapi.com/imdb/types';
+const options = {
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key': 'f70681134fmsh77ac107ca7b7377p14cd62jsn881aa11f8a61',
+		'x-rapidapi-host': 'imdb236.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}

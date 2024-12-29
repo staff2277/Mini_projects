@@ -1,35 +1,9 @@
 import GridText from "../../components/GridText";
-import { useEffect, useState } from "react";
 import Categories from "../../components/Categories";
+import data from "../../components/data"
 
 const Home = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    async function getGrid() {
-      const url = "https://movies-api14.p.rapidapi.com/movies";
-      const options = {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key":
-            "f70681134fmsh77ac107ca7b7377p14cd62jsn881aa11f8a61",
-          "x-rapidapi-host": "movies-api14.p.rapidapi.com",
-        },
-      };
-
-      try {
-        const response = await fetch(url, options);
-        const result = await response.json();
-        setData(result)
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    getGrid();
-  }, []);
-
-  let poster = data.movies?.map(value => value.poster_path || [])
-
-  console.log(poster);
+  
 
   return (
     <div className="relative">
@@ -48,7 +22,7 @@ const Home = () => {
       
       ">
         {<div className="absolute h-screen w-full bg-transparent-gradient z-10"></div>}
-        {poster && poster.map((value, index) => <div className="rounded-2xl" key={index}><img src={value} alt="grid" /></div>)}
+        {data.map((value) => <div className="rounded-2xl" key={value.key}><img src={value.image} alt="grid" /></div>)}
       </div>
       <Categories />
     </div>

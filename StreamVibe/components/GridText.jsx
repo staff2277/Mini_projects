@@ -5,7 +5,7 @@ const GridText = () => {
         <div className="5s:text-[2rem] sm:text-[2.5rem] max-5s:text-[1rem] font-extrabold">
           The Best Streaming Experience
         </div>
-        <p className="mt-5 max-5s:text-[0.8rem]">
+        <p className="mt-5 max-5s:text-[0.8rem] text-[#999999]">
           StreamVibe is the best streaming experience for watching your favorite
           movies and shows on demand, anytime, anywhere.{" "}
           <span className="max-md:hidden">

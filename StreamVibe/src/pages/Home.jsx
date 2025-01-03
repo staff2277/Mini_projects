@@ -25,7 +25,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <div className="sm:px-[7%] max-sm:px-[15px] border-2 border-pink-500 flex flex-col items-center">
+      <div className="sm:px-[5%] max-sm:px-[15px] border-2 border-pink-500">
         <Categories />
       </div>
     </div>

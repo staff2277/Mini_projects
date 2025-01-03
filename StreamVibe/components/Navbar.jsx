@@ -5,7 +5,7 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <div className="flex justify-between z-20 items-center max-sm:pt-5 sm:pt-8 absolute w-full border-2 sm:px-[50px]  max-sm:px-[20px]">
+    <div className="flex justify-between z-20 items-center max-sm:pt-5 sm:pt-8 absolute w-full   sm:px-[50px]  max-sm:px-[20px]">
       <div className="flex items-center gap-2">
         <img
           className="sm:w-[90px] max-sm:w-[50px]"
@@ -64,7 +64,7 @@ const Navbar = () => {
           <img src="/images/notification.svg" alt="notification icon" />
         </span>
       </div>
-      <div className="lg:hidden border-2 border-[#BFBFBF] max-sm:px-[10px] max-sm:py-[20px] max-lg:px-[20px] max-lg:py-[25px] rounded-xl">
+      <div className="lg:hidden  max-sm:px-[10px] max-sm:py-[20px] max-lg:px-[20px] max-lg:py-[25px] rounded-xl">
         <span className="">
           <img src="/images/menu.svg" alt="" />
         </span>

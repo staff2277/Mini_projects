@@ -16,6 +16,9 @@ export default {
         "category-gradient": `
           linear-gradient(0deg, rgba(0,0,0,0.5438550420168067) 41%, rgba(128,125,125,0.15449929971988796) 70%)
         `,
+        "device-gradient": `
+           linear-gradient(210deg, rgba(250,10,10,0.44110854503464203) 0%, rgba(15,15,15,0.15449929971988796) 34%)
+        `,
       },
     },
     screens: {

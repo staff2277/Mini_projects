@@ -1,17 +1,19 @@
 import GridText from "../../components/GridText";
 import Categories from "../../components/Categories";
+import Devices from "../../components/Devices";
+import SubPlan from "../../components/SubPlan";
 import data from "../../components/data";
 
 const Home = () => {
   return (
     <div className="relative">
       <div className="h-screen grid sm:grid-cols-1 5s:grid-rows-[65%_auto] max-5s:grid-rows-[70%_auto] ">
-        <div className="border-2 border-green-600 content-center justify-items-center">
+        <div className="content-center justify-items-center">
           <div className="max-sm:w-[15rem] sm:w-[20rem] max-5s:w-[10rem] sm:mt-[7rem]">
             <img src="/images/play.svg" alt="" />
           </div>
         </div>
-        <div className="border-2 border-blue-600 content-start justify-items-start">
+        <div className="content-start justify-items-start">
           <GridText />
         </div>
       </div>
@@ -25,8 +27,10 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <div className="sm:px-[5%] max-sm:px-[15px] border-2 border-pink-500">
+      <div className="sm:px-[5%] max-sm:px-[15px]">
         <Categories />
+        <Devices />
+        <SubPlan />
       </div>
     </div>
   );

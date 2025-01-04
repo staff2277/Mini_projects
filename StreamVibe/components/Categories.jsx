@@ -44,7 +44,7 @@ const Categories = () => {
           </h1>
           <p className="my-3 text-[#999999] sm:text-[1rem] max-5s:text-[0.8rem]">
             Whether you&#39;re looking for a comedy to make you laugh, a drama
-            to make you think, or a documentary to learn something new
+            to make you think, or a documentary to learn something new ok
           </p>
         </span>
         {/* <span className="max-lg:hidden ml-auto flex items-center bg-[#0F0F0F] border-2 rounded-lg px-3 border-[#3a3a3a]">

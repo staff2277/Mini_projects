@@ -33,7 +33,7 @@ const Devices = () => {
   ];
 
   return (
-    <div className="border-2 py-[5rem]">
+    <div className=" py-[5rem]">
       <div>
         <h1 className="sm:text-[2.3rem] max-sm:text-[1.8rem] font-bold">
           We Provide you streaming experience across various devices.
@@ -45,12 +45,12 @@ const Devices = () => {
           entertainment.
         </p>
       </div>
-      <div className="mt-[3rem] border-2 border-yellow-400 grid xl:grid-cols-[repeat(auto-fit,minmax(500px,1fr))]  grid-rows-2 gap-4 max-xl:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] max-lg:grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
+      <div className="mt-[3rem]  grid xl:grid-cols-[repeat(auto-fit,minmax(500px,1fr))]  grid-rows-2 gap-4 max-xl:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] max-lg:grid-cols-[repeat(auto-fit,minmax(300px,1fr))]">
         {devices.map((value) => {
           return (
             <div
               key={value.id}
-              className="border-2 py-[40px] px-[30px] bg-device-gradient"
+              className="border-2 border-[#1F1F1F] py-[40px] px-[30px] bg-device-gradient"
             >
               <div className="flex items-center gap-5 py-[20px]">
                 <span className="border-2 border-[#1F1F1F] bg-[#141414] p-2 rounded-lg flex justify-center items-center">

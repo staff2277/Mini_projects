@@ -2,6 +2,8 @@ import GridText from "../../components/GridText";
 import Categories from "../../components/Categories";
 import Devices from "../../components/Devices";
 import SubPlan from "../../components/SubPlan";
+import Trial from "../../components/Trial";
+import Footer from "../../components/Footer";
 import data from "../../components/data";
 
 const Home = () => {
@@ -31,7 +33,9 @@ const Home = () => {
         <Categories />
         <Devices />
         <SubPlan />
+        <Trial />
       </div>
+      <Footer />
     </div>
   );
 };

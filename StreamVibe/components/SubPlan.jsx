@@ -3,7 +3,7 @@ import yearlyPricingData from "./yearlyPricingData";
 
 const SubPlan = () => {
   return (
-    <div className="border-2 border-pink-500 my-[5rem]">
+    <div className="my-[5rem]">
       <div>
         <h3 className="sm:text-[2.3rem] max-sm:text-[1.8rem] font-bold">
           Choose the plan that&apos;s right for you
@@ -14,7 +14,7 @@ const SubPlan = () => {
           entertainment!
         </p>
       </div>
-      <div className="grid xl:grid-cols-[repeat(auto-fit,minmax(500px,1fr))]  grid-rows-2 gap-4 max-xl:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] max-lg:grid-cols-[repeat(auto-fit,minmax(370px,1fr))] max-5s:grid-cols-[repeat(auto-fit,minmax(270px,1fr))] ">
+      <div className="grid xl:grid-cols-[repeat(auto-fit,minmax(500px,1fr))] gap-4 max-xl:grid-cols-[repeat(auto-fit,minmax(400px,1fr))] max-lg:grid-cols-[repeat(auto-fit,minmax(370px,1fr))] max-5s:grid-cols-[repeat(auto-fit,minmax(270px,1fr))] ">
         {monthlyPricingData.map((value, index) => {
           return (
             <div

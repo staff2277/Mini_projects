@@ -4,10 +4,17 @@ import Devices from "../../components/Devices";
 import SubPlan from "../../components/SubPlan";
 import Trial from "../../components/Trial";
 import Footer from "../../components/Footer";
-import data from "../../components/data";
+import { useEffect, useState } from "react";
 
-const Home = ({ merged }) => {
-  console.log(merged);
+const Home = ({ seriesData, moviesData }) => {
+  let seriesPoster = seriesData.map((value) => value.poster_path);
+  let moviesPoster = moviesData.map((value) => value.poster_path);
+
+  const [merged, setMerged] = useState([]);
+
+  useEffect(() => {
+    setMerged([...moviesPoster, ...seriesPoster]);
+  }, [seriesData, moviesData]);
 
   return (
     <div className="relative">

@@ -6,7 +6,9 @@ import Trial from "../../components/Trial";
 import Footer from "../../components/Footer";
 import data from "../../components/data";
 
-const Home = () => {
+const Home = ({ merged }) => {
+  console.log(merged);
+
   return (
     <div className="relative">
       <div className="h-screen grid sm:grid-cols-1 5s:grid-rows-[65%_auto] max-5s:grid-rows-[70%_auto] ">
@@ -19,15 +21,20 @@ const Home = () => {
           <GridText />
         </div>
       </div>
-      <div className="bg-double-gradient grid-cols-[repeat(auto-fit,minmax(auto,1fr))] overflow-hidden absolute z-[-20] h-[75vh] w-full inset-0 gap-[0.125rem] grid md:grid-cols-[repeat(auto-fit,minmax(9.375rem,1fr))] max-md:grid-cols-[repeat(auto-fit,minmax(6.25rem,1fr))] max-sm:grid-cols-[repeat(auto-fit,minmax(5.9375rem,1fr))] lg:grid-cols-[repeat(auto-fit,minmax(12.5rem,1fr))] 2xl:grid-cols-[repeat(auto-fit,minmax(12.5rem,1fr))]  3xl:grid-cols-[repeat(auto-fit,minmax(20.5rem,1fr))]">
+      <div className="bg-double-gradient grid-cols-[repeat(auto-fit,minmax(auto,1fr))] overflow-hidden absolute z-[-20] h-[75vh] w-full inset-0 gap-3 grid md:grid-cols-[repeat(auto-fit,minmax(9.375rem,1fr))] max-md:grid-cols-[repeat(auto-fit,minmax(6.25rem,1fr))] max-sm:grid-cols-[repeat(auto-fit,minmax(5.9375rem,1fr))] lg:grid-cols-[repeat(auto-fit,minmax(12.5rem,1fr))] 2xl:grid-cols-[repeat(auto-fit,minmax(12.5rem,1fr))]  3xl:grid-cols-[repeat(auto-fit,minmax(20.5rem,1fr))]">
         {
           <div className="absolute h-screen w-full bg-transparent-gradient z-10"></div>
         }
-        {data.map((value) => (
-          <div className="rounded-2xl" key={value.key}>
-            <img src={value.image} alt="grid" />
-          </div>
-        ))}
+        {merged &&
+          merged.map((value, index) => (
+            <div className="" key={index}>
+              <img
+                className="rounded-2xl"
+                src={`https://image.tmdb.org/t/p/w500${value}`}
+                alt="grid"
+              />
+            </div>
+          ))}
       </div>
       <div className="sm:px-[5%] max-sm:px-[15px]">
         <Categories />

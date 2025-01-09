@@ -7,32 +7,70 @@ import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
 
 const App = () => {
-  const url = "https://jsonplaceholder.typicode.com/comments/";
+  let [movies, setMovies] = useState([]);
+  let [series, setSeries] = useState([]);
+  let [merged, setMerged] = useState([]);
 
-  let [data, setData] = useState();
+  /* const url = "https://api.themoviedb.org/3/trending/all/day?language=en-US"; */
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYTJkYjY1ODRmMWJiMGI3NjRmMWJmNDQ1YjUwM2Q4MyIsIm5iZiI6MTczNTY1NDQxNS41MDgsInN1YiI6IjY3NzNmYzBmY2ZlNjI2NDRkZjEzNTlhOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pk3RyAEEF9i65lV6qepQ5vPo_pPJsiWTtsRFYf31_LU",
+    },
+  };
 
   useEffect(() => {
-    fetch(url)
+    fetch(
+      "https://api.themoviedb.org/3/trending/movie/week?language=en-US",
+      options
+    )
       .then((res) => res.json())
       .then((data) => {
-        const names = data.map((value) => value.id);
-        setData(names);
+        const poster = data.results.map((value) => value.poster_path);
+        setMovies(poster);
       })
       .catch((err) => console.error(err));
   }, []);
 
   useEffect(() => {
-    if (data) {
-      console.log(data);
+    fetch(
+      "https://api.themoviedb.org/3/trending/tv/week?language=en-US",
+      options
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const poster = data.results.map((value) => value.poster_path);
+        setSeries(poster);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    if (movies.length > 0 && series.length > 0) {
+      setMerged([...series, ...movies]);
     }
-  }, [data]);
+  }, [movies, series]);
+
+  useEffect(() => {
+    merged.length > 0 && console.log(merged);
+  }, [merged]);
 
   return (
     <div className="text-white">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/moviesXshows" element={<MoviesXShows />} />
+        <Route
+          path="/"
+          element={<Home merged={merged} series={series} movies={movies} />}
+        />
+        <Route
+          path="/moviesXshows"
+          element={
+            <MoviesXShows merged={merged} series={series} movies={movies} />
+          }
+        />
         <Route path="/support" element={<Support />} />
         <Route path="/subscriptions" element={<Subscriptions />} />
       </Routes>

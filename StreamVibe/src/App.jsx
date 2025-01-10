@@ -9,6 +9,9 @@ import { useEffect, useState } from "react";
 const App = () => {
   let [moviesData, setMoviesData] = useState([]);
   let [seriesData, setSeriesData] = useState([]);
+  let [movieGenreId, setMovieGenreId] = useState([]);
+  let [movieGenreName, setMovieGenreName] = useState([]);
+  let [movieGenreData, setMovieGenreData] = useState([]);
 
   /* const url = "https://api.themoviedb.org/3/trending/all/day?language=en-US"; */
   const options = {
@@ -19,6 +22,40 @@ const App = () => {
         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYTJkYjY1ODRmMWJiMGI3NjRmMWJmNDQ1YjUwM2Q4MyIsIm5iZiI6MTczNTY1NDQxNS41MDgsInN1YiI6IjY3NzNmYzBmY2ZlNjI2NDRkZjEzNTlhOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.pk3RyAEEF9i65lV6qepQ5vPo_pPJsiWTtsRFYf31_LU",
     },
   };
+
+  useEffect(() => {
+    fetch("https://api.themoviedb.org/3/genre/movie/list?language=en", options)
+      .then((res) => res.json())
+      .then((data) => {
+        const genreId = data.genres.map((value) => value.id);
+        setMovieGenreId(genreId);
+        const genreName = data.genres.map((value) => value.name);
+        setMovieGenreName(genreName);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    async function fetchMultiple() {
+      try {
+        const request = movieGenreId.map((genreId) =>
+          fetch(
+            `https://api.themoviedb.org/3/discover/movie?api_key=${options.headers.Authorization}&with_genres=${genreId}`,
+            options
+          ).then((res) => res.json())
+        );
+
+        const results = await Promise.all(request);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchMultiple();
+  }, [movieGenreId.length]);
+
+  /*  useEffect(() => {
+    console.log(movieGenreData);
+  }, [movieGenreId.length]); */
 
   useEffect(() => {
     fetch(
@@ -52,7 +89,13 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={<Home seriesData={seriesData} moviesData={moviesData} />}
+          element={
+            <Home
+              movieGenreName={movieGenreName}
+              seriesData={seriesData}
+              moviesData={moviesData}
+            />
+          }
         />
         <Route
           path="/moviesXshows"

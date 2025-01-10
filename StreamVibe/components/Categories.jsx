@@ -1,15 +1,7 @@
 import { useRef } from "react";
 
-const Categories = () => {
-  let category = [
-    "Action",
-    "Adventure",
-    "Comedy",
-    "Drama",
-    "Horror",
-    "Sci-Fi",
-    "Romance",
-  ];
+const Categories = ({ movieGenreName }) => {
+  let category = movieGenreName.map((value) => value);
   let categoryImg = [];
 
   for (let i = 1; i <= 28; i++) {
@@ -22,7 +14,6 @@ const Categories = () => {
     if (container.current) {
       const scrollAmount =
         container.current.querySelector(".snap-start").offsetWidth; // Get width of a category card
-      console.log("left clicked");
       container.current.scrollLeft -= scrollAmount; // Scroll left by one card's width
     }
   };

@@ -15,8 +15,6 @@ const MoviesXShows = ({ moviesData }) => {
     return () => clearInterval(interval);
   }, [moviesbg.length]);
 
-  console.log(count);
-
   return (
     <div>
       <div className="h-[100vh] bg-cover bg-center">

@@ -1,35 +1,54 @@
 import { useRef } from "react";
+import { useLocation } from "react-router-dom";
+import clsx from "clsx";
 
-const Categories = ({ movieGenreName }) => {
+const Categories = ({ movieGenreName, movieGenreData }) => {
+  const location = useLocation();
+
+  const genreImg = movieGenreData.flat().map((value) => value.poster_path);
+  console.log(genreImg);
+
   let category = movieGenreName.map((value) => value);
-  let categoryImg = [];
-
-  for (let i = 1; i <= 28; i++) {
-    categoryImg.push(`/images/categories/Image${i}.png`);
-  }
+  let categoryImg = genreImg;
 
   const container = useRef(null);
 
   const onClickLeft = () => {
     if (container.current) {
       const scrollAmount =
-        container.current.querySelector(".snap-start").offsetWidth; // Get width of a category card
-      container.current.scrollLeft -= scrollAmount; // Scroll left by one card's width
+        container.current.querySelector(".snap-start").offsetWidth;
+      container.current.scrollLeft -= scrollAmount;
     }
   };
 
   const onClickRight = () => {
     if (container.current) {
       const scrollAmount =
-        container.current.querySelector(".snap-start").offsetWidth; // Get width of a category card
-      container.current.scrollLeft += scrollAmount; // Scroll right by one card's width
+        container.current.querySelector(".snap-start").offsetWidth;
+      container.current.scrollLeft += scrollAmount;
     }
   };
 
   return (
     <div className="my-[5rem]">
       <div className="flex items-center ">
-        <span className="  w-full">
+        <div>
+          <p
+            className={clsx({
+              hidden: location.pathname === "/",
+              "5s:text-[2rem] sm:text-[2.5rem] max-5s:text-[1rem] font-bold":
+                location.pathname === "/moviesXshows",
+            })}
+          >
+            Our Genres
+          </p>
+        </div>
+        <span
+          className={clsx({
+            hidden: location.pathname === "/moviesXshows",
+            "w-full": location.pathname === "/",
+          })}
+        >
           <h1 className="5s:text-[2rem] sm:text-[2.5rem] max-5s:text-[1rem] font-bold">
             Explore our wide variety of categories
           </h1>
@@ -48,14 +67,19 @@ const Categories = ({ movieGenreName }) => {
             const start = index * 4;
             let cards = categoryImg.slice(start, start + 4);
             let card = cards.map((value, i) => (
-              <img key={i} src={value} alt={`image${i}`} />
+              <img
+                key={i}
+                src={`https://image.tmdb.org/t/p/w342${value}`}
+                alt={`image${i}`}
+                className="rounded-md"
+              />
             ));
             return (
               <div
                 key={index}
                 className="my-[4rem] mr-[1.5rem] p-[20px] bg-[#1A1A1A] rounded-lg snap-start"
               >
-                <div className="grid grid-cols-[100px_100px] grid-rows-2">
+                <div className="grid grid-cols-[100px_100px] gap-2  grid-rows-2">
                   {card}
                 </div>
                 <div className="flex mt-2">

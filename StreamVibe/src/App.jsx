@@ -46,6 +46,10 @@ const App = () => {
         );
 
         const results = await Promise.all(request);
+        const categoryData = await results.map((value) =>
+          value.results.splice(6, 4)
+        );
+        setMovieGenreData(categoryData);
       } catch (error) {
         console.error(error);
       }
@@ -94,13 +98,19 @@ const App = () => {
               movieGenreName={movieGenreName}
               seriesData={seriesData}
               moviesData={moviesData}
+              movieGenreData={movieGenreData}
             />
           }
         />
         <Route
           path="/moviesXshows"
           element={
-            <MoviesXShows seriesData={seriesData} moviesData={moviesData} />
+            <MoviesXShows
+              seriesData={seriesData}
+              moviesData={moviesData}
+              movieGenreName={movieGenreName}
+              movieGenreData={movieGenreData}
+            />
           }
         />
         <Route path="/support" element={<Support />} />

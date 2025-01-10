@@ -6,7 +6,7 @@ import Trial from "../../components/Trial";
 import Footer from "../../components/Footer";
 import { useEffect, useState } from "react";
 
-const Home = ({ seriesData, moviesData, movieGenreName }) => {
+const Home = ({ seriesData, moviesData, movieGenreName, movieGenreData }) => {
   let seriesPoster = seriesData.map((value) => value.poster_path);
   let moviesPoster = moviesData.map((value) => value.poster_path);
 
@@ -44,7 +44,10 @@ const Home = ({ seriesData, moviesData, movieGenreName }) => {
           ))}
       </div>
       <div className="sm:px-[5%] max-sm:px-[15px]">
-        <Categories movieGenreName={movieGenreName} />
+        <Categories
+          movieGenreName={movieGenreName}
+          movieGenreData={movieGenreData}
+        />
         <Devices />
         <SubPlan />
         <Trial />

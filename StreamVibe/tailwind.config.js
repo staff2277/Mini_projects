@@ -19,6 +19,9 @@ export default {
         "device-gradient": `
            linear-gradient(210deg, rgba(250,10,10,0.44110854503464203) 0%, rgba(15,15,15,0.15449929971988796) 34%)
         `,
+        "drop-gradient": `
+           background: linear-gradient(0deg, rgba(0,0,0,0.5886729691876751) 35%, rgba(255,255,255,0.15449929971988796) 92%)
+        `,
       },
     },
     screens: {

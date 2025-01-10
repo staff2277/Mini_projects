@@ -18,7 +18,12 @@ const Navbar = () => {
           alt="logo"
         />
       </div>
-      <nav className="flex bg-[#0F0F0F] mr-[120px] max-lg:hidden gap-3 border-[4px] border-[#1F1F1F] px-[10px] py-[10px] rounded-xl items-center">
+      <nav
+        className={clsx({
+          "border-[#363636] px-[50px]": location.pathname === "/moviesXshows",
+          "flex bg-[#0F0F0F] mr-[120px] max-lg:hidden gap-3 border-[4px] border-[#1F1F1F] px-[10px] py-[10px] rounded-xl items-center": true,
+        })}
+      >
         <Link
           to="/"
           className={clsx({

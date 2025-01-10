@@ -7,7 +7,7 @@ const GridText = () => {
         </div>
         <p className="mt-5 max-5s:text-[0.8rem] text-[#999999] lg:px-[20%]">
           StreamVibe is the best streaming experience for watching your favorite
-          movies and shows on demand, anytime, anywhere.{" "}
+          movies and shows on demand, anytime, anywhere.
           <span className="max-md:hidden">
             With StreamVibe, you can enjoy a wide variety of content, including
             the latest blockbusters, classic movies, popular TV shows, and more.

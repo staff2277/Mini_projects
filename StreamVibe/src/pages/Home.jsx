@@ -10,6 +10,8 @@ const Home = ({ seriesData, moviesData, movieGenreName, movieGenreData }) => {
   let seriesPoster = seriesData.map((value) => value.poster_path);
   let moviesPoster = moviesData.map((value) => value.poster_path);
 
+  const genreImg = movieGenreData.flat().map((value) => value.poster_path);
+
   const [merged, setMerged] = useState([]);
 
   useEffect(() => {
@@ -47,6 +49,7 @@ const Home = ({ seriesData, moviesData, movieGenreName, movieGenreData }) => {
         <Categories
           movieGenreName={movieGenreName}
           movieGenreData={movieGenreData}
+          genreImg={genreImg}
         />
         <Devices />
         <SubPlan />

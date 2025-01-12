@@ -12,6 +12,7 @@ const App = () => {
   let [movieGenreId, setMovieGenreId] = useState([]);
   let [movieGenreName, setMovieGenreName] = useState([]);
   let [movieGenreData, setMovieGenreData] = useState([]);
+  let [movieTopTen, setMovieTopTen] = useState([]);
 
   /* const url = "https://api.themoviedb.org/3/trending/all/day?language=en-US"; */
   const options = {
@@ -46,10 +47,17 @@ const App = () => {
         );
 
         const results = await Promise.all(request);
-        const categoryData = await results.map((value) =>
-          value.results.splice(6, 4)
-        );
+        const topTen = await results.map((value) => {
+          return value.results.splice(6, 4);
+        });
+
+        const categoryData = await results.map((value) => {
+          setMovieTopTen(() => value.results.splice(1, 4));
+          return value.results.splice(6, 4);
+        });
+
         setMovieGenreData(categoryData);
+        setMovieTopTen(topTen);
       } catch (error) {
         console.error(error);
       }
@@ -110,6 +118,7 @@ const App = () => {
               moviesData={moviesData}
               movieGenreName={movieGenreName}
               movieGenreData={movieGenreData}
+              movieTopTen={movieTopTen}
             />
           }
         />

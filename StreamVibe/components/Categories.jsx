@@ -2,11 +2,8 @@ import { useRef } from "react";
 import { useLocation } from "react-router-dom";
 import clsx from "clsx";
 
-const Categories = ({ movieGenreName, movieGenreData }) => {
+const Categories = ({ movieGenreName, genreImg, title }) => {
   const location = useLocation();
-
-  const genreImg = movieGenreData.flat().map((value) => value.poster_path);
-  console.log(genreImg);
 
   let category = movieGenreName.map((value) => value);
   let categoryImg = genreImg;
@@ -36,11 +33,11 @@ const Categories = ({ movieGenreName, movieGenreData }) => {
           <p
             className={clsx({
               hidden: location.pathname === "/",
-              "5s:text-[2rem] sm:text-[2.5rem] max-5s:text-[1rem] font-bold":
+              "5s:text-[2rem] sm:text-[2.5rem] max-5s:text-[1rem] font-bold ml-5":
                 location.pathname === "/moviesXshows",
             })}
           >
-            Our Genres
+            {title}
           </p>
         </div>
         <span
@@ -79,7 +76,7 @@ const Categories = ({ movieGenreName, movieGenreData }) => {
                 key={index}
                 className="my-[4rem] mr-[1.5rem] p-[20px] bg-[#1A1A1A] rounded-lg snap-start"
               >
-                <div className="grid grid-cols-[100px_100px] gap-2  grid-rows-2">
+                <div className="grid grid-cols-[130px_130px] gap-2  grid-rows-2">
                   {card}
                 </div>
                 <div className="flex mt-2">

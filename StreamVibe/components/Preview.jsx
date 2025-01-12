@@ -14,6 +14,7 @@ const Preview = ({ moviesData, movieGenreName, movieGenreData }) => {
 
     return () => clearInterval(interval);
   }, [moviesbg.length]);
+
   return (
     <div>
       <div className="h-[100vh] bg-cover bg-center">

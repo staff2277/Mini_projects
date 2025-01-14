@@ -1,10 +1,13 @@
+import Trial from "../../components/Trial";
+import Footer from "../../components/Footer";
+
 const Support = ({ moviesData }) => {
   const movieImg = moviesData.map((value) => value.poster_path);
 
   return (
     <div className="sm:px-[5%] max-sm:px-[15px]">
       <div className="h-[15vh] "></div>
-      <div className="2xl:grid 2xl:grid-cols-[40%_60%] h-[80vh] 2xl:overflow-hidden">
+      <div className="2xl:grid 2xl:grid-cols-[40%_60%] 2xl:h-[80vh] 2xl:overflow-hidden">
         <div className="">
           <div className="bg-[#141414]">
             <div className="pb-[3rem]">
@@ -135,6 +138,12 @@ const Support = ({ moviesData }) => {
             </fieldset>
           </form>
         </div>
+      </div>
+      <div className="py-[5rem] mt-[5rem]">
+        <Trial />
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );

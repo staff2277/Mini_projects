@@ -171,7 +171,7 @@ const App = () => {
             />
           }
         />
-        <Route path="/support" element={<Support />} />
+        <Route path="/support" element={<Support moviesData={moviesData} />} />
         <Route path="/subscriptions" element={<Subscriptions />} />
       </Routes>
     </div>

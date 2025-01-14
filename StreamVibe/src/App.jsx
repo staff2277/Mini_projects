@@ -8,11 +8,16 @@ import { useEffect, useState } from "react";
 
 const App = () => {
   let [moviesData, setMoviesData] = useState([]);
-  let [seriesData, setSeriesData] = useState([]);
   let [movieGenreId, setMovieGenreId] = useState([]);
-  let [movieGenreName, setMovieGenreName] = useState([]);
   let [movieGenreData, setMovieGenreData] = useState([]);
   let [movieTopTen, setMovieTopTen] = useState([]);
+  let [movieGenreName, setMovieGenreName] = useState([]);
+
+  let [seriesData, setSeriesData] = useState([]);
+  let [seriesGenreData, setSeriesGenreData] = useState([]);
+  let [seriesTopTen, setSeriesTopTen] = useState([]);
+  let [seriesGenreName, setSeriesGenreName] = useState([]);
+  let [seriesGenreId, setSeriesGenreId] = useState([]);
 
   /* const url = "https://api.themoviedb.org/3/trending/all/day?language=en-US"; */
   const options = {
@@ -35,6 +40,47 @@ const App = () => {
       })
       .catch((err) => console.error(err));
   }, []);
+
+  useEffect(() => {
+    fetch("https://api.themoviedb.org/3/genre/tv/list?language=en", options)
+      .then((res) => res.json())
+      .then((data) => {
+        const genreId = data.genres.map((value) => value.id);
+        setSeriesGenreId(genreId);
+        const genreName = data.genres.map((value) => value.name);
+        setSeriesGenreName(genreName);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  useEffect(() => {
+    async function fetchMultipleSeries() {
+      try {
+        const request = seriesGenreId.map((genreId) =>
+          fetch(
+            `https://api.themoviedb.org/3/discover/tv?api_key=${options.headers.Authorization}&with_genres=${genreId}`,
+            options
+          ).then((res) => res.json())
+        );
+
+        const results = await Promise.all(request);
+        const topTen = await results.map((value) => {
+          return value.results.splice(6, 4);
+        });
+
+        const categoryData = await results.map((value) => {
+          setSeriesTopTen(() => value.results.splice(1, 4));
+          return value.results.splice(6, 4);
+        });
+
+        setSeriesGenreData(categoryData);
+        setSeriesTopTen(topTen);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchMultipleSeries();
+  }, [movieGenreId.length]);
 
   useEffect(() => {
     async function fetchMultiple() {
@@ -114,11 +160,14 @@ const App = () => {
           path="/moviesXshows"
           element={
             <MoviesXShows
-              seriesData={seriesData}
               moviesData={moviesData}
               movieGenreName={movieGenreName}
               movieGenreData={movieGenreData}
               movieTopTen={movieTopTen}
+              seriesData={seriesData}
+              seriesGenreName={seriesGenreName}
+              seriesGenreData={seriesGenreData}
+              seriesTopTen={seriesTopTen}
             />
           }
         />

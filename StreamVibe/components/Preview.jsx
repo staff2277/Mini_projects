@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-const Preview = ({ moviesData, movieGenreName, movieGenreData }) => {
+const Preview = ({ moviesData }) => {
   const [count, setCount] = useState(0);
 
   let moviesbg = moviesData.map((value) => value.backdrop_path);
@@ -80,6 +81,16 @@ const Preview = ({ moviesData, movieGenreName, movieGenreData }) => {
       </div>
     </div>
   );
+};
+
+Preview.propTypes = {
+  moviesData: PropTypes.arrayOf(
+    PropTypes.shape({
+      backdrop_path: PropTypes.string,
+      title: PropTypes.string,
+      overview: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default Preview;

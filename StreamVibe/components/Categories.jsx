@@ -1,11 +1,12 @@
 import { useRef } from "react";
 import { useLocation } from "react-router-dom";
 import clsx from "clsx";
+import PropTypes from "prop-types";
 
-const Categories = ({ movieGenreName, genreImg, title }) => {
+const Categories = ({ genreName, genreImg, title }) => {
   const location = useLocation();
 
-  let category = movieGenreName.map((value) => value);
+  let category = genreName.map((value) => value);
   let categoryImg = genreImg;
 
   const container = useRef(null);
@@ -106,6 +107,11 @@ const Categories = ({ movieGenreName, genreImg, title }) => {
       </div>
     </div>
   );
+};
+
+Categories.propTypes = {
+  genreName: PropTypes.arrayOf(PropTypes.string).isRequired,
+  genreImg: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Categories;

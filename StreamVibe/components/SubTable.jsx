@@ -14,6 +14,9 @@ const SubTable = () => {
             the one that&apos;s right for you.
           </p>
         </div>
+        <div>
+          <button></button>
+        </div>
 
         <div className="h-full flex mt-[4rem]">
           <div className="*:border-[1px] *:px-5 *:border-[#1F1F1F] grid grid-rows-[repeat(10,90px)] *:flex *:items-center text-[#999999] sm:text-[1rem] max-5s:text-[0.8rem]">
@@ -47,7 +50,7 @@ const SubTable = () => {
             <div>No</div>
             <div>No</div>
           </div>
-          <div className="*:border-[1px] *:px-5 *:border-[#1F1F1F] grid grid-rows-[repeat(10,90px)] *:flex *:items-center text-[#999999] sm:text-[1rem] max-5s:text-[0.8rem]">
+          <div className="*:border-[1px] max-lg:hidden *:px-5 *:border-[#1F1F1F] grid grid-rows-[repeat(10,90px)] *:flex *:items-center text-[#999999] sm:text-[1rem] max-5s:text-[0.8rem]">
             <div className="bg-[#0F0F0F] text-white font-extrabold">
               Standard
             </div>
@@ -65,7 +68,7 @@ const SubTable = () => {
             <div>Yes, for select titles.</div>
             <div>Yes, up to 5 family members.</div>
           </div>
-          <div className="*:border-[1px] *:px-5 *:border-[#1F1F1F] grid grid-rows-[repeat(10,90px)] *:flex *:items-center text-[#999999] sm:text-[1rem] max-5s:text-[0.8rem]">
+          <div className="*:border-[1px] max-lg:hidden *:px-5 *:border-[#1F1F1F] grid grid-rows-[repeat(10,90px)] *:flex *:items-center text-[#999999] sm:text-[1rem] max-5s:text-[0.8rem]">
             <div className="bg-[#0F0F0F] text-white font-extrabold">
               Premium
             </div>

@@ -1,5 +1,4 @@
 import monthlyPricingData from "./monthlyPricingData";
-import yearlyPricingData from "./yearlyPricingData";
 
 const SubPlan = () => {
   return (

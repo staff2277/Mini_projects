@@ -14,11 +14,19 @@ const SubTable = () => {
             the one that&apos;s right for you.
           </p>
         </div>
-        <div>
-          <button></button>
+        <div className="flex justify-center gap-3 lg:hidden">
+          <button className="flex items-center gap-3 bg-[#E50000] normal-case hover:bg-[#3a3a3a] focus:bg-[#3f3f3f] active:bg-[#3f3f3f] focus:outline-none focus:ring focus:ring-[#cac8c896] max-sm:px-[1.5rem] max-sm:py-[0.8rem] rounded-lg  sm:px-[2rem] sm:py-[1rem] max-5s:px-[0.8rem] max-5s:py-[0.5rem] max-5s:text-[0.9rem] max-5s:mt-[10px] 5s:mt-8">
+            Basic
+          </button>
+          <button className="flex items-center gap-3 bg-[#E50000] normal-case hover:bg-[#3a3a3a] focus:bg-[#3f3f3f] active:bg-[#3f3f3f] focus:outline-none focus:ring focus:ring-[#cac8c896] max-sm:px-[1.5rem] max-sm:py-[0.8rem] rounded-lg  sm:px-[2rem] sm:py-[1rem] max-5s:px-[0.8rem] max-5s:py-[0.5rem] max-5s:text-[0.9rem] max-5s:mt-[10px] 5s:mt-8">
+            Standard
+          </button>
+          <button className="flex items-center gap-3 bg-[#E50000] normal-case hover:bg-[#3a3a3a] focus:bg-[#3f3f3f] active:bg-[#3f3f3f] focus:outline-none focus:ring focus:ring-[#cac8c896] max-sm:px-[1.5rem] max-sm:py-[0.8rem] rounded-lg  sm:px-[2rem] sm:py-[1rem] max-5s:px-[0.8rem] max-5s:py-[0.5rem] max-5s:text-[0.9rem] max-5s:mt-[10px] 5s:mt-8">
+            Premium
+          </button>
         </div>
 
-        <div className="h-full flex mt-[4rem]">
+        <div className="h-full flex mt-[2rem]">
           <div className="*:border-[1px] *:px-5 *:border-[#1F1F1F] grid grid-rows-[repeat(10,90px)] *:flex *:items-center text-[#999999] sm:text-[1rem] max-5s:text-[0.8rem]">
             <div className="bg-[#0F0F0F] text-white font-extrabold">
               Features

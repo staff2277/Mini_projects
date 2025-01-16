@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 const Subscriptions = () => {
   return (
     <div className="">
-      <div className="h-[15vh] border-2"></div>
+      <div className="h-[15vh]"></div>
       <div className="sm:px-[5%] max-sm:px-[15px]">
         <SubPlan />
       </div>

@@ -9,7 +9,6 @@ const Trending = ({ trending }) => {
       const scrollAmount =
         container.current.querySelector(".snap-start").offsetWidth;
       container.current.scrollLeft -= scrollAmount;
-      console.log("clicked left");
     }
   };
 
@@ -18,7 +17,6 @@ const Trending = ({ trending }) => {
       const scrollAmount =
         container.current.querySelector(".snap-start").offsetWidth;
       container.current.scrollLeft += scrollAmount;
-      console.log("clicked right");
     }
   };
 
@@ -48,7 +46,7 @@ const Trending = ({ trending }) => {
                 <p className="font-extrabold mt-5">{value.title}</p>
               </div>
               <div className="flex justify-between items-center mt-3">
-                <span className=" max-5s:text-[0.8rem] text-[#999999]">{`Released ${value.release_date}`}</span>
+                <span className=" max-5s:text-[0.8rem] text-[#999999]">{`Released ${value.release_date || value.first_air_date}`}</span>
                 <span className="flex items-center gap-3">
                   <img className="w-[30px]" src="/star.svg" alt="" />
                   <span className="text-[#E50000] max-5s:text-[0.8rem]">
